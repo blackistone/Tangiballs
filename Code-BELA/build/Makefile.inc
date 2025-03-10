@@ -1,0 +1,8 @@
+-include libraries/AudioFile/build/Makefile.link
+-include libraries/Biquad/build/Makefile.link
+-include libraries/Encoder/build/Makefile.link
+-include libraries/Scope/build/Makefile.link
+-include libraries/WSServer/build/Makefile.link
+-include libraries/math_neon/build/Makefile.link
+-include libraries/ne10/build/Makefile.link
+-include libraries/sndfile/build/Makefile.link
