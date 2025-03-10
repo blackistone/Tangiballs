@@ -1,4 +1,10 @@
 /*
+TANGIBALLS LOOPER: Kevin Blackistone 2023-2025
+Code for the Bela board.
+Spherical audio looper for two spheres.
+
+
+
 USES: \example Sensors/rotary-encoder/render.cpp
 
 Audio filtering for Tangiballs loopers
@@ -14,7 +20,7 @@ Audio filtering for Tangiballs loopers
 #include <libraries/math_neon/math_neon.h>
 
 
-std::string gFilename[] = {"Empty90.aif", "BabyBangingBeach.aif", "ArpPianoLoop.aif", "BeatLoop1.aif", "BeatLoop2.aif", "crickets.aif", "kyotopark.aif", "NoiseThenTalking.aif", "SynthOctavesLoop.aif", "wKsen.aif"};
+std::string gFilename[] = {"01.aif", "02.aif", "03.aif", "04.aif", "05.aif", "06.aif", "07.aif", "08.aif", "09.aif", "10.aif"};
 
 
 // **************BIQUAD SECTION**********
@@ -69,17 +75,6 @@ int yDifb = 0;
 bool lastA = 0;
 bool lastB = 0;
 
-/*
-float angle = 0;
-float offset = 0.0; // offset of angle to never use negatives
-float velocity = 0;
-float lastAngle= 0.0;
-float lastVel = 0.0;
-float angleRamp = 0.0;
-float velRamp = 0.0;
-float velocityMax = 200.0;
-*/
-
 int sumFrames = 1024; // check every 8 blocks at 256 size ; //check 30/s  2940; // check value 15/sec
 long long int lastTime = 0;
 
@@ -129,14 +124,12 @@ float mix = 0.75;
 // instantiate the scope
 Scope scope;
 
-
-
 int gAudioFramesPerAnalogFrame = 0;
 
 float interpolateVal(int buf, float shiftedPtr, float inMix, float yFadeInterpolated, int yCh1, int yCh2, float audioIn){
 			
 			float sig = 0.0;	
-		    int indexBelow = floorf( shiftedPtr ); 
+		    	int indexBelow = floorf( shiftedPtr ); 
 
 			// INTERPOLATE BETWEEN SAMPLES
 			int indexAbove = indexBelow + 1;
